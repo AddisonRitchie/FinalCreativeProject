@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <title>Creation Time</title>
+</head>
+
+<body>
+  <div class="header">
+    <div class="logo">
+      <!--<img src="https://image.flaticon.com/icons/png/512/84/84473.png">-->
+      
+      <img src="https://images.vexels.com/media/users/3/129851/isolated/lists/1e47aaddecede0ed9c0862d39f7c5e3a-color-painting-pallette.png">
+      <h1>Creation Time</h1>
+      <h2>Let's Make Some Art</h2>
+    </div>
+    <!--<div class="title">-->
+    <!--  <h2>Creation Time</h2>-->
+    <!--  <h1>Let's Make Some Art</h1>-->
+    <!--</div>-->
+  </div>
+  
+  
+  <div id="app" class="content">
+    <div class="newArt">
+        <img :src="testArt" />
+    </div>
+<div>
+  <b-spinner label="Loading..."></b-spinner>
+</div>
+
+    <section class="image-gallery">
+      <div class="image" v-for="item in items">
+        <h2>{{item.title}}</h2>
+        <img :src="item.path" v-on:click="doArtClick(item._id)"/>
+          
+        <!--<p>{{item.info}}</p>-->
+        <!--<button v-on:click="doArt()"> Create Art </button>-->
+      </div>
+      
+  </div>
+  
+  
+  <div class="footer">
+    <a href="admin.html">Add an Image</a>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

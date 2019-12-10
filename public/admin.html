@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+  <title>Creation Time Add Image</title>
+</head>
+
+<body>
+  <div id="admin" class="content">
+    <div class="titlePage">
+          <h1>Creation Time: Add Images</h1>
+    </div>
+    
+    <div class="heading">
+      <!--<div class="circle">1</div>-->
+      <h2>Add an Item</h2>
+    </div>
+    <div class="add">
+      <div class="form">
+        <input v-model="title" placeholder="Title">
+        <!--<div class="textarea"> -->
+          <!--<input v-model="textDescription" placeholder="Enter Description">-->
+        <!--</div>-->
+        <p></p>
+        <input type="file" name="photo" @change="fileChanged">
+        <button @click="upload">Upload</button>
+      </div>
+      <div class="upload" v-if="addItem">
+        <h2>{{addItem.title}}</h2>
+        <img :src="addItem.path" />
+      </div>
+    </div>
+    
+    
+     <div class="heading">
+      <!--<div class="circle">2</div>-->
+      <h2>Delete an Item or Rename</h2>
+    </div>
+    <div class="edit">
+      <div class="form">
+        <input v-model="findTitle" placeholder="Search">
+        <div class="suggestions" v-if="suggestions.length > 0">
+          <div class="suggestion" v-for="s in suggestions" @click="selectItem(s)">{{s.title}}
+          </div>
+        </div>
+      </div>
+      <div class="upload" v-if="findItem">
+        <input v-model="findItem.title">
+        <!--<input v-model="findItem.info">-->
+        <p></p>
+        <img :src="findItem.path" />
+      </div>
+      <div class="actions" v-if="findItem">
+        <button @click="deleteItem(findItem)">Delete</button>
+        <button @click="editItem(findItem)">Rename</button>
+      </div>
+    </div>
+    
+    
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
+  <script src="/admin.js"></script>
+</body>
+
+<div class="footer">
+  <a href="https://www.github.com/AddisonRitchie/FinalCreativeProject"> GitHub Link</a>
+</div>
+
+</html>
