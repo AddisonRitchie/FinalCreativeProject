@@ -8,6 +8,8 @@ var path = require('path');
 const deepai = require('deepai'); // OR include deepai.min.js as a script tag in your HTML
 deepai.setApiKey('dd37af3d-c8b2-4a1c-8a11-a1720b8766a3');
 
+// import { FlowerSpinner } from 'epic-spinners'
+
 
 var gStylePath = "./public/images/A-Feast-for-Crows-2784353.jpg";
 var gContentPath = "./public/images/becoming.jpg";

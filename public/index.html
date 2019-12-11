@@ -8,47 +8,74 @@
 </head>
 
 <body>
+  
   <div class="header">
     <div class="logo">
       <!--<img src="https://image.flaticon.com/icons/png/512/84/84473.png">-->
-      
+
       <img src="https://images.vexels.com/media/users/3/129851/isolated/lists/1e47aaddecede0ed9c0862d39f7c5e3a-color-painting-pallette.png">
       <h1>Creation Time</h1>
       <h2>Let's Make Some Art</h2>
+      <p> Click one image as your base, then click a second as the effect.</p>
+      <p>Then wait for your masterpiece to be revealed!</p>
     </div>
     <!--<div class="title">-->
     <!--  <h2>Creation Time</h2>-->
     <!--  <h1>Let's Make Some Art</h1>-->
     <!--</div>-->
   </div>
-  
-  
+
+
   <div id="app" class="content">
-    <div class="newArt">
-        <img :src="testArt" />
+    
+    
+
+    <div v-if="loading">
+
+      <div class="scaling-squares-spinner" :style="spinnerStyle">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+      </div>
     </div>
-<div>
-  <b-spinner label="Loading..."></b-spinner>
-</div>
+
+    <!--<div v-else>-->
+      
+      
+      <div class="newArt">
+
+
+        <img :src="testArt" />
+        <button v-on:click="arrowLeft()"> << </button>
+        <button v-on:click="arrowRight()"> >> </button>
+      </div>
+
+    <!--</div>-->
+
 
     <section class="image-gallery">
       <div class="image" v-for="item in items">
         <h2>{{item.title}}</h2>
-        <img :src="item.path" v-on:click="doArtClick(item._id)"/>
-          
+        <img :src="item.path" v-on:click="doArtClick(item._id)" />
+        
+        <!--<a href="#" v-scroll-to="header"> </a>-->
+
         <!--<p>{{item.info}}</p>-->
         <!--<button v-on:click="doArt()"> Create Art </button>-->
       </div>
-      
+
   </div>
-  
-  
+
+
   <div class="footer">
     <a href="admin.html">Add an Image</a>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
   <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-scrollto"></script>
 </body>
 
 </html>
